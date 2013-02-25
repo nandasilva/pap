@@ -1,0 +1,11 @@
+{
+	"require": {
+		"slim/slim": "2.*",
+		"j4mie/idiorm": "1.*",
+		"mustache/mustache": "2.1.*",
+		"slim/extras": "2.0.*"
+	},
+	"autoload": {
+		"classmap": ["application/"]
+	}
+}
