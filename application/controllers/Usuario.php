@@ -10,7 +10,8 @@ class Usuario {
 		if ($this->verUsuarioNome($nomeUsuario)) {
 			throw new Exception('Usuário cadastrado');
 		} else {
-			
+			// pegar o ID da cidade
+			return UsuarioModel::novoUsuario($usuario);
 		}
 	}
 
