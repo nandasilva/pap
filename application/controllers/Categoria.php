@@ -1,5 +1,6 @@
 <?php
 
+
 class Categoria {
 
 	public function verCategorias() {

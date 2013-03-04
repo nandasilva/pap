@@ -2321,3 +2321,18 @@ table .dropdown-menu.pull-right { right: auto; left: 0; }
 .loginWrapper { top: 100px; margin-top: 0; }
 .logControl { padding-bottom: 50px; }
 }
+
+/**
+ * Novos estilos
+ */
+#avatarUser {
+	position: relative;
+}
+.loadingLogin {
+	position: absolute;
+	left: 50%;
+	margin-left: -31px;
+	top: 25px;
+	padding: 15px;
+	background: rgba(255, 255, 255, 0.8);
+}

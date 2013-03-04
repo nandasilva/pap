@@ -54,4 +54,40 @@ $(function(){
 	);
 
 	$(".styled, input:radio, input:checkbox, .dataTables_length select").uniform();
+
+	/**
+	 * Login Ajax
+	 */
+	$('#login').on('submit', function() {
+		var self = $(this),
+			loading = $('<img src="/public/images/elements/loaders/4.gif" id="loginLoading" title="Carregando..." class="loadingLogin" />')
+
+		$.ajax({
+			'url': self.attr('action'),
+			'type': self.attr('method'),
+			'dataType': 'json',
+			'data': self.serialize(),
+			'beforeSend': function() {
+				if ( !$('#loginLoading').length )
+					$('#avatarUser').append(loading);
+			},
+			'success': function(d) {
+				if ( d.code == 300 ) {
+					$('#welcomeToPanel').html(d.message);
+					loading.remove();
+				}
+				else if ( d.code == 200 ) {
+					loading.remove();
+					$('#avatarUser').find('img').attr('src', d.avatar);
+					$('#welcomeToPanel').html(d.message);
+
+					window.setTimeout(function() {
+						window.location = '/painel';
+					}, 5000);
+				}
+			}
+		})
+
+		return false;
+	});
 });

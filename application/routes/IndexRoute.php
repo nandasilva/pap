@@ -5,6 +5,12 @@
  */
 $app->get('/', function() use ($app) {
 
+	// Verifica se sessão existe,
+	// se existe o usuário será redirecionado
+	if ( isset($_SESSION['IDUsuario']) && isset($_SESSION['NomeUsuario']) ) {
+		$app->redirect('/painel');
+	}
+
 	// Chama a página
 	$app->render('index/Login.php', array(
 		'template' => array(

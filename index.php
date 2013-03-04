@@ -86,6 +86,18 @@ $view->appendData(array(
 					'files/jquery.js',
 					'files/jquery-ui.min.js'
 				)
+			),
+			'painel' => array(
+				'js' => array(
+					'plugins/charts/jquery.flot.js',
+					'plugins/charts/jquery.sparkline.min.js',
+					'plugins/tables/jquery.sortable.js',
+					'plugins/forms/jquery.uniform.js',
+					'plugins/forms/jquery.ibutton.js',
+					'plugins/forms/jquery.maskedinput.min.js',
+					'plugins/ui/jquery.easytabs.min.js',
+					'files/painelFunctions.js'
+				)
 			)
 		),
 		'paths' => array(
@@ -117,6 +129,13 @@ $app->add(new \Slim\Middleware\SessionCookie(array(
 	'cipher' => MCRYPT_RIJNDAEL_256,
 	'cipher_mode' => MCRYPT_MODE_CBC
 )));
+
+/**
+ * Erro 404 - Define um template padrão
+ */
+$app->notFound(function () use ($app) {
+	$app->render('/errors/404.php');
+});
 
 /**
  * Routes

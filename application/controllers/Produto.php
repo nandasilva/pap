@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class Produto {
 
@@ -47,7 +47,8 @@ class Produto {
 	}
 
 	public function verificaProdutoCodigoBarras($codigo) {
-		return (ORM::for_table('produtos')->where('CodigoBarrasProduto', $codigo)->count() > 0);
+		return (ORM::for_table('prox
+			dutos')->where('CodigoBarrasProduto', $codigo)->count() > 0);
 	}
 
 	public function novoProduto($produto)
